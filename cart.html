@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="https://cdn.vectorstock.com/i/500p/53/96/logo-letter-z-glitch-distortion-vector-22855396.jpg" id="logo"></a>
+        <nav>
+            <a href="index.html" class="sub main"><span class="name">Home</span></a>
+            <a href="list.html" class="sub"><span class="name">List</span></a>
+            <a href="cart.html" class="sub"><span class="name">Cart</span></a>
+        </nav>
+    </header>
+
+    <main class="cart-container">
+        <h1>Your Shopping Cart</h1>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <div class="cart-summary">
+            <h2>Order Summary</h2>
+            <p>Total Items: <span id="total-items">0</span></p>
+            <p>Total Price: $<span id="total-price">0.00</span></p>
+            <button id="checkout-btn" class="btn-primary">Proceed to Checkout</button>
+        </div>
+    </main>
+
+    <footer>
+        &copy; All Rights Reserved 2008979
+    </footer>
+</body>
+</html>
