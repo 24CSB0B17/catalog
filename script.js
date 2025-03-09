@@ -48,6 +48,11 @@ class Cart {
             this.items = [];
         }
     }
+
+    clearCart() {
+        this.items = [];
+        this.updateLocalStorage();
+    }
 }
 
 const cart = new Cart();
@@ -96,6 +101,7 @@ function updateCartUI() {
         <p>Total Items: ${cart.getTotalItems()}</p>
         <p>Total Price: $${cart.getTotalPrice().toFixed(2)}</p>
         <p>Date: ${cart.date.toLocaleString()}</p>
+        <button id="proceed-to-checkout">Proceed to Checkout</button>
     `;
 }
 
@@ -110,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (product) {
                 cart.addItem(product);
                 updateCartUI();
+                alert('Added to Cart');
             }
         }
     });
@@ -121,4 +128,13 @@ document.addEventListener('DOMContentLoaded', () => {
             updateCartUI();
         }
     });
+
+    const proceedToCheckoutButton = document.getElementById('proceed-to-checkout');
+    if (proceedToCheckoutButton) {
+        proceedToCheckoutButton.addEventListener('click', () => {
+            alert('Proceeding to Checkout');
+            cart.clearCart();
+            updateCartUI();
+        });
+    }
 });
