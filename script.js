@@ -38,10 +38,10 @@ class Cart {
   }
 }
 
-const product1 = new Product(1, 'Product 1', 19.99, 'product1.jpg', 'This is an amazing product that you will love!');
-const product2 = new Product(2, 'Product 2', 29.99, 'product2.jpg', 'A premium product with excellent features.');
-const product3 = new Product(3, 'Product 3', 39.99, 'product3.jpg', 'Best for everyday use, high durability and performance.');
-const product4 = new Product(4, 'Product 4', 49.99, 'product4.jpg', 'An innovative product that makes life easier.');
+const product1 = new Product(1, 'ASUS ROG Strix G17 2023 17.3” QHD', 19.99, 'https://images-cdn.ubuy.co.in/67c3399a157ced505c376a68-asus-rog-strix-g17-2023-17-3-qhd.jpg', 'This is an amazing product that you will love!');
+const product2 = new Product(2, 'ASUS TUF Gaming A15', 29.99, 'https://m.media-amazon.com/images/I/61xBASwU+zL._SX679_.jpg', 'A premium product with excellent features.');
+const product3 = new Product(3, 'Acer Predator Helios 300 Gaming Laptop', 39.99, 'https://m.media-amazon.com/images/I/81g7AiqWrtL._SX679_.jpg', 'Best for everyday use, high durability and performance.');
+const product4 = new Product(4, 'Lenovo IdeaPad Gaming 3', 49.99, 'https://m.media-amazon.com/images/I/7173difaarL._SX679_.jpg', 'An innovative product that makes life easier.');
 
 const cart = new Cart();
 
