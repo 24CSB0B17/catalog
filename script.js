@@ -1,4 +1,3 @@
-// Product class
 class Product {
     constructor(id, name, price, image) {
         this.id = id;
@@ -8,7 +7,6 @@ class Product {
     }
 }
 
-// Cart class
 class Cart {
     constructor() {
         this.items = [];
@@ -44,17 +42,17 @@ class Cart {
 
     loadCart() {
         const storedItems = JSON.parse(localStorage.getItem('cartItems'));
-        if (storedItems) {
+        if (storedItems && Array.isArray(storedItems)) {
             this.items = storedItems;
+        } else {
+            this.items = [];
         }
     }
 }
 
-// Initialize cart and load from localStorage
 const cart = new Cart();
 cart.loadCart();
 
-// Product data (this could be fetched from an API in a real application)
 const products = [
     new Product(1, 'Product 1', 29.99, 'https://via.placeholder.com/200x150'),
     new Product(2, 'Product 2', 49.99, 'https://via.placeholder.com/200x150'),
@@ -62,7 +60,6 @@ const products = [
     new Product(4, 'Product 4', 99.99, 'https://via.placeholder.com/200x150'),
 ];
 
-// Display products
 function displayProducts() {
     const productList = document.getElementById('product-list');
     productList.innerHTML = '';
@@ -79,7 +76,6 @@ function displayProducts() {
     });
 }
 
-// Update cart UI
 function updateCartUI() {
     const cartItemsDiv = document.getElementById('cart-items');
     const cartSummary = document.getElementById('cart-summary');
@@ -103,22 +99,21 @@ function updateCartUI() {
     `;
 }
 
-// Event listeners
 document.addEventListener('DOMContentLoaded', () => {
     displayProducts();
     updateCartUI();
 
-    // Add to cart
     document.getElementById('product-list').addEventListener('click', (e) => {
         if (e.target.classList.contains('add-to-cart')) {
             const productId = parseInt(e.target.dataset.id);
             const product = products.find(p => p.id === productId);
-            cart.addItem(product);
-            updateCartUI();
+            if (product) {
+                cart.addItem(product);
+                updateCartUI();
+            }
         }
     });
 
-    // Remove from cart
     document.getElementById('cart-items').addEventListener('click', (e) => {
         if (e.target.classList.contains('remove-item')) {
             const productId = parseInt(e.target.dataset.id);
