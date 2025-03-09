@@ -15,9 +15,15 @@ class Cart {
   }
 
   addItem(product) {
-    this.items.push(product);
+    const existingItem = this.items.find(item => item.id === product.id);
+    if (existingItem) {
+      existingItem.count++;
+    } else {
+      this.items.push({ ...product, count: 1 });
+    }
     this.totalPrice += product.price;
     this.updateCartDisplay();
+    alert(`${product.name} added to cart!`);
   }
 
   updateCartDisplay() {
@@ -26,7 +32,7 @@ class Cart {
 
     this.items.forEach(item => {
       const li = document.createElement('li');
-      li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+      li.textContent = `${item.name} - $${item.price.toFixed(2)} x ${item.count}`;
       cartItemsContainer.appendChild(li);
     });
 
@@ -48,10 +54,4 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
       cart.addItem(product1);
     } else if (productId === 'product2') {
       cart.addItem(product2);
-    } else if (productId === 'product3') {
-      cart.addItem(product3);
-    } else if (productId === 'product4') {
-      cart.addItem(product4);
-    }
-  });
-});
+   
