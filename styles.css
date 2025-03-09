@@ -147,14 +147,17 @@ h2 {
 }
 
 .carousel-container {
-  perspective: 1000px;
+  perspective: 1500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
 }
 
 .carousel {
+  position: relative;
   width: 60%;
   height: 300px;
-  margin: 0 auto;
-  position: relative;
   transform-style: preserve-3d;
   transform: rotateY(0deg);
   animation: rotateCarousel 15s infinite linear;
